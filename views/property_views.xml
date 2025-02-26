@@ -1,0 +1,58 @@
+<odoo>
+    <!-- Action pour afficher la liste des propriétés -->
+    <record id="action_properties" model="ir.actions.act_window">
+        <field name="name">Propriétés</field>
+        <field name="res_model">real_estate.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Vue en liste (tree) -->
+    <record id="view_property_tree" model="ir.ui.view">
+        <field name="name">real_estate.property.tree</field>
+        <field name="model">real_estate.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="living_area"/>
+                <field name="bedrooms"/>
+                <field name="bathrooms"/>
+                <field name="garage"/>
+                <field name="garden"/>
+                <field name="state"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue en formulaire (form) -->
+    <record id="view_property_form" model="ir.ui.view">
+        <field name="name">real_estate.property.form</field>
+        <field name="model">real_estate.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="price"/>
+                        <field name="living_area"/>
+                        <field name="bedrooms"/>
+                        <field name="bathrooms"/>
+                        <field name="garage"/>
+                        <field name="garden"/>
+                        <field name="state"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu principal -->
+    <menuitem id="menu_real_estate_root" name="Gestion Immobilière" sequence="10"/>
+
+    <!-- Sous-menu des propriétés -->
+    <menuitem id="menu_real_estate_properties" name="Propriétés" parent="menu_real_estate_root" action="action_properties"/>
+</odoo>
+
